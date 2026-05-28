@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leon's Wetland Butterfly Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    gridTemplateColumns: {
+                        '20': 'repeat(20, minmax(0, 1fr))',
+                    },
+                    colors: {
+                        plant: {
+                            vi: '#8b5cf6', // Violet
+                            th: '#f8fafc', // White
+                            as: '#94a3b8', // Gray Aster
+                            bv: '#3b82f6', // Blue Vervain
+                            mw: '#ef4444', // Red Milkweed
+                            jp: '#d946ef', // Mauve Joe-Pye
+                            cx: '#16a34a', // Fox Sedge
+                            ts: '#65a30d', // Tussock Sedge
+                            jr: '#0d9488'  // Soft Rush
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-900 text-slate-300 font-sans min-h-screen flex flex-col items-center selection:bg-blue-500 selection:text-white m-0 p-0">
+
+    <!-- HERO / LANDING PAGE SECTION -->
+    <div class="h-screen w-full flex flex-col justify-center items-center relative px-6 text-center border-b border-slate-800 bg-slate-950">
+        
+        <div class="max-w-4xl">
+            <h2 class="text-sm md:text-base font-bold text-slate-500 tracking-[0.3em] uppercase mb-4">The Objective</h2>
+            <h1 class="text-4xl md:text-6xl font-black text-blue-400 tracking-tighter uppercase mb-8 drop-shadow-lg">Leon's Wetland Butterfly Project</h1>
+            
+            <div class="bg-slate-900/50 border border-slate-700/50 p-6 md:p-8 rounded-xl shadow-2xl backdrop-blur-sm">
+                <p class="text-lg md:text-xl text-slate-300 leading-relaxed font-medium">
+                    Most butterfly gardens are just truck stops—a quick sugary drink before the bugs leave. We are building a permanent 100-square-foot swamp in the backyard for rare Pennsylvania butterflies to live in full-time. Instead of just a quick snack, this habitat gives the Baltimore Checkerspot, Harris' Checkerspot, and Silver-Bordered Fritillary everything they need to hatch, eat, sleep safely through the winter, and lay eggs year after year.
+                </p>
+            </div>
+        </div>
+
+        <!-- Bouncing Scroll Indicator -->
+        <div class="absolute bottom-12 flex flex-col items-center animate-bounce text-slate-500">
+            <span class="text-xs tracking-[0.2em] uppercase font-bold mb-3">Scroll to view our blueprints</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT WRAPPER -->
+    <div class="w-full max-w-6xl space-y-8 p-4 md:p-8 mt-8">
+        
+        <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-xl">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                </svg>
+                The Plant List
+            </h2>
+            <p class="text-sm text-slate-400 mb-6">Exactly 100 plants go into this 5x20 grid. No swapping them out if we want these specific butterflies to move in.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-slate-900 p-4 rounded-lg border border-slate-700/50">
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Caterpillar Food (Host Plants)</div>
+                    <ul class="space-y-2 text-sm font-medium">
+                        <li class="flex justify-between items-center"><span class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-plant-th"></div>White Turtlehead</span> <span class="bg-slate-800 px-2 py-1 rounded text-white">x10</span></li>
+                        <li class="flex justify-between items-center"><span class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-plant-as"></div>Flat-Topped Aster</span> <span class="bg-slate-800 px-2 py-1 rounded text-white">x8</span></li>
+                        <li class="flex justify-between items-center"><span class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-plant-vi"></div>Marsh Blue Violet</span> <span class="bg-slate-800 px-2 py-1 rounded text-white">x16</span></li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900 p-4 rounded-lg border border-slate-700/50">
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Adult Food (Nectar Flowers)</div>
+                    <ul class="space-y-2 text-sm font-medium">
+                        <li class="flex justify-between items-center"><span class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-plant-mw"></div>Swamp Milkweed</span> <span class="bg-slate-800 px-2 py-1 rounded text-white">x6</span></li>
+                        <li class="flex justify-between items-center"><span class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-plant-jp"></div>Joe-Pye Weed</span> <span class="bg-slate-800 px-2 py-1 rounded text-white">x3</span></li>
+                        <li class="flex justify-between items-center"><span class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-plant-bv"></div>Blue Vervain</span> <span class="bg-slate-800 px-2 py-1 rounded text-white">x4</span></li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900 p-4 rounded-lg border border-slate-700/50">
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">The Filler Grasses (Shelter)</div>
+                    <ul class="space-y-2 text-sm font-medium">
+                        <li class="flex justify-between items-center"><span class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-plant-cx"></div>Fox Sedge</span> <span class="bg-slate-800 px-2 py-1 rounded text-white">x22</span></li>
+                        <li class="flex justify-between items-center"><span class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-plant-jr"></div>Soft Rush</span> <span class="bg-slate-800 px-2 py-1 rounded text-white">x17</span></li>
+                        <li class="flex justify-between items-center"><span class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-plant-ts"></div>Tussock Sedge</span> <span class="bg-slate-800 px-2 py-1 rounded text-white">x14</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-xl overflow-hidden">
+            <h2 class="text-xl font-bold text-white mb-4">The Blueprint</h2>
+            <div class="flex justify-between text-xs text-slate-500 mb-2 tracking-widest font-mono">
+                <span>[Width: 20 FT]</span>
+                <span>[Depth: 5 FT]</span>
+            </div>
+
+            <div class="w-full overflow-x-auto pb-4">
+                <div id="garden-grid" class="min-w-[800px] grid grid-cols-20 gap-1 aspect-[4/1] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlPSIjMzM0MTU1IiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+')] p-1 border border-slate-700 rounded-lg">
+                </div>
+            </div>
+
+            <div class="text-center text-xs font-bold text-slate-500 tracking-[0.3em] mt-4 font-mono">
+                ▼ VIEWING EDGE ▼
+            </div>
+        </div>
+
+        <div class="border-t border-slate-700 pt-8">
+            <h2 class="text-2xl font-bold text-white mb-6">Our Planting Rules</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                <div class="bg-slate-800 border border-slate-700 p-5 rounded-lg hover:border-blue-500 transition-colors">
+                    <h3 class="font-bold text-plant-vi text-lg">Marsh Blue Violet</h3>
+                    <p class="text-xs text-slate-400 mt-1 font-mono">Height: 6-12" | Spread: 8-12"</p>
+                    <p class="text-sm mt-3 text-slate-300 leading-relaxed">We are planting these exactly level with the dirt. If we bury the base, they will rot. We'll let them spread out to cover the empty dirt in the front.</p>
+                </div>
+                <div class="bg-slate-800 border border-slate-700 p-5 rounded-lg hover:border-blue-500 transition-colors">
+                    <h3 class="font-bold text-plant-th text-lg">White Turtlehead</h3>
+                    <p class="text-xs text-slate-400 mt-1 font-mono">Height: 2-4' | Spread: 1.5-2'</p>
+                    <p class="text-sm mt-3 text-slate-300 leading-relaxed">These grow into thick clumps. It might look bare the first year, but they grow fast. This will be the main target for the butterfly eggs.</p>
+                </div>
+                <div class="bg-slate-800 border border-slate-700 p-5 rounded-lg hover:border-blue-500 transition-colors">
+                    <h3 class="font-bold text-plant-as text-lg">Flat-Topped Aster</h3>
+                    <p class="text-xs text-slate-400 mt-1 font-mono">Height: 3-5' | Spread: 2-3'</p>
+                    <p class="text-sm mt-3 text-slate-300 leading-relaxed">These spread naturally underground. Over the next few years, we'll let them slowly crawl out and fill in the spaces behind our turtleheads.</p>
+                </div>
+                <div class="bg-slate-800 border border-slate-700 p-5 rounded-lg hover:border-blue-500 transition-colors">
+                    <h3 class="font-bold text-plant-mw text-lg">Swamp Milkweed</h3>
+                    <p class="text-xs text-slate-400 mt-1 font-mono">Height: 3-5' | Spread: 2-3'</p>
+                    <p class="text-sm mt-3 text-slate-300 leading-relaxed">These have a very long, deep root. We have to dig deep holes and make sure the root points straight down. If we bend the root like a "J", it ruins the plant.</p>
+                </div>
+                <div class="bg-slate-800 border border-slate-700 p-5 rounded-lg hover:border-blue-500 transition-colors">
+                    <h3 class="font-bold text-plant-jp text-lg">Joe-Pye Weed</h3>
+                    <p class="text-xs text-slate-400 mt-1 font-mono">Height: 4-6'+ | Spread: 3-4'</p>
+                    <p class="text-sm mt-3 text-slate-300 leading-relaxed">These turn into giant monsters. We are keeping them shoved all the way to the back row, or they will block the sun from our smaller plants.</p>
+                </div>
+                <div class="bg-slate-800 border border-slate-700 p-5 rounded-lg hover:border-blue-500 transition-colors">
+                    <h3 class="font-bold text-plant-bv text-lg">Blue Vervain</h3>
+                    <p class="text-xs text-slate-400 mt-1 font-mono">Height: 3-5' | Spread: 1-2'</p>
+                    <p class="text-sm mt-3 text-slate-300 leading-relaxed">These don't live forever, but they drop a ton of seeds. We're just going to let them drop their seeds in the fall so they can naturally replace themselves.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 border-l-4 border-red-500 p-6 rounded-r-lg shadow-lg">
+                <h3 class="font-bold text-white mb-4 uppercase tracking-wider text-lg">Important Rules (Our Game Plan)</h3>
+                <ul class="space-y-4 text-sm text-slate-300">
+                    <li class="flex gap-3">
+                        <span class="font-bold text-red-400 mt-0.5">01</span>
+                        <div><strong class="text-white block mb-1">Using The Wood Chips</strong> Once planted, we are putting 3 to 4 inches of wood chips in every open gap between plants to keep the soil wet and stop weeds. <span class="text-red-400 font-bold">Important:</span> We need to make sure the wood chips don't actually touch the plant stems, or they will rot.</div>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="font-bold text-red-400 mt-0.5">02</span>
+                        <div><strong class="text-white block mb-1">Watering Heavy</strong> These are swamp plants, so if our ground is mostly hard clay, that's perfect. We aren't trying to make it drain better. We'll be soaking them heavily with the hose for their entire first year.</div>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="font-bold text-red-400 mt-0.5">03</span>
+                        <div><strong class="text-white block mb-1">No Fertilizer</strong> We aren't adding any Miracle-Gro or compost. Native plants grow too fast if the dirt is too rich, and their stems will snap in half. We're making them grow in regular dirt so their stems get strong.</div>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="font-bold text-red-400 mt-0.5">04</span>
+                        <div><strong class="text-white block mb-1">The Winter Rule (Don't Touch It)</strong> We are absolutely not cleaning up the dead stems or leaves in the fall. The caterpillars sleep inside the dead stems and on the ground all winter. If we clean the garden, we are throwing away the butterflies. We're letting it look messy.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-slate-700 pt-8 mt-8 pb-12">
+            <h2 class="text-2xl font-bold text-white mb-6">Our Yard Prep</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <div class="bg-slate-800 border border-slate-700 p-5 rounded-lg hover:border-emerald-500 transition-colors">
+                    <h3 class="font-bold text-emerald-400 text-lg mb-2">Digging A Bowl</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">We aren't piling the dirt up high. We are digging the whole 5x20 area down 3 to 4 inches deeper than the grass around it. We are building a shallow bowl so rain water flows into the garden and stays there.</p>
+                </div>
+                <div class="bg-slate-800 border border-slate-700 p-5 rounded-lg hover:border-emerald-500 transition-colors">
+                    <h3 class="font-bold text-amber-400 text-lg mb-2">Basking Stones</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">Butterflies need to be warm to fly. We are putting 2 or 3 big, flat rocks right at the front edge. The sun will heat up the rocks, and the butterflies will sit on them in the morning to warm up their wings.</p>
+                </div>
+                <div class="bg-slate-800 border border-slate-700 p-5 rounded-lg hover:border-emerald-500 transition-colors">
+                    <h3 class="font-bold text-yellow-700 text-lg mb-2">The Rotted Log</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">We're placing an old, rotting log behind the plants in the back. It acts like a giant sponge to hold water, and it gives good bugs a place to hide so they can eat the bad bugs.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const layout = [
+            ['mw', 'mw', 'mw', 'jr', 'jr', 'jr', 'jr', 'jr', 'jp', 'jp', 'jp', 'jr', 'jr', 'jr', 'jr', 'jr', 'jr', 'mw', 'mw', 'mw'],
+            ['jr', 'jr', 'jr', 'bv', 'cx', 'cx', 'cx', 'cx', 'as', 'as', 'as', 'as', 'cx', 'cx', 'cx', 'cx', 'bv', 'jr', 'jr', 'jr'],
+            ['ts', 'ts', 'ts', 'bv', 'ts', 'ts', 'ts', 'ts', 'as', 'as', 'as', 'as', 'ts', 'ts', 'ts', 'ts', 'bv', 'ts', 'ts', 'ts'],
+            ['cx', 'cx', 'cx', 'cx', 'cx', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'cx', 'cx', 'cx', 'cx', 'cx'],
+            ['vi', 'vi', 'vi', 'vi', 'cx', 'cx', 'vi', 'vi', 'vi', 'vi', 'vi', 'vi', 'vi', 'vi', 'cx', 'cx', 'vi', 'vi', 'vi', 'vi']
+        ];
+
+        const grid = document.getElementById('garden-grid');
+
+        layout.forEach(row => {
+            row.forEach(cell => {
+                const div = document.createElement('div');
+                div.className = "w-full h-full flex items-center justify-center p-[2px]";
+                
+                if (cell) {
+                    const node = document.createElement('div');
+                    node.className = `w-[95%] h-[95%] rounded-full bg-plant-${cell} text-slate-900 flex items-center justify-center text-[0.6rem] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.3)] cursor-pointer hover:scale-110 transition-transform duration-200`;
+                    node.textContent = cell.toUpperCase();
+                    
+                    if(cell === 'th') {
+                        node.classList.add('shadow-[inset_0_-4px_6px_rgba(0,0,0,0.15)]');
+                    } else if (cell === 'cx' || cell === 'ts' || cell === 'jr') {
+                        node.classList.add('shadow-[inset_0_-4px_6px_rgba(0,0,0,0.5)]', 'text-slate-900', 'opacity-90'); 
+                    } else {
+                        node.classList.add('shadow-[inset_0_-4px_6px_rgba(0,0,0,0.3)]', 'text-white');
+                    }
+
+                    div.appendChild(node);
+                }
+                grid.appendChild(div);
+            });
+        });
+    </script>
+</body>
+</html>
