@@ -59,7 +59,7 @@
         <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-xl">
             <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                 </svg>
                 The Plant List
             </h2>
@@ -94,14 +94,37 @@
         </div>
 
         <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-xl overflow-hidden">
-            <h2 class="text-xl font-bold text-white mb-4">The Blueprint <span class="text-sm font-normal text-slate-400 ml-2">(Click a node for details)</span></h2>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
+                <h2 class="text-xl font-bold text-white">The Blueprint <span class="text-sm font-normal text-slate-400 ml-2">(Click a node for details)</span></h2>
+                <div class="flex gap-2">
+                    <button id="toggle-topdown" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-bold transition">
+                        Top-Down View
+                    </button>
+                    <button id="toggle-realistic" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-sm font-bold transition">
+                        Realistic View
+                    </button>
+                </div>
+            </div>
+            
             <div class="flex justify-between text-xs text-slate-500 mb-2 tracking-widest font-mono">
                 <span>[Width: 20 FT]</span>
                 <span>[Depth: 5 FT]</span>
             </div>
 
             <div class="w-full overflow-x-auto pb-4">
-                <div id="garden-grid" class="min-w-[800px] grid grid-cols-20 gap-1 aspect-[4/1] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlPSIjMzM0MTU1IiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+')] p-1 border border-slate-700 rounded-lg">
+                <div class="min-w-[800px] relative rounded-lg">
+                    
+                    <img src="topdown.jpg" id="topdown-img" 
+                         class="absolute inset-0 w-full h-full object-fill z-20 opacity-0 transition-opacity duration-500 pointer-events-none rounded-lg border border-slate-700" 
+                         alt="Top Down Mockup">
+                         
+                    <img src="mockup.jpg" id="realistic-img" 
+                         class="absolute inset-0 w-full h-full object-fill z-20 opacity-0 transition-opacity duration-500 pointer-events-none rounded-lg border border-slate-700" 
+                         alt="Realistic Mockup">
+                         
+                    <div id="garden-grid" class="w-full grid grid-cols-20 gap-1 aspect-[4/1] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjMWUyOTNiIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlPSIjMzM0MTU1IiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+')] p-1 border border-slate-700 rounded-lg">
+                    </div>
+                    
                 </div>
             </div>
 
@@ -221,17 +244,46 @@
     </div>
 
     <script>
-        // Plant Data Dictionary
+        const topdownBtn = document.getElementById('toggle-topdown');
+        const realisticBtn = document.getElementById('toggle-realistic');
+        const imgTopdown = document.getElementById('topdown-img');
+        const imgRealistic = document.getElementById('realistic-img');
+
+        topdownBtn.addEventListener('click', () => {
+            if (imgTopdown.classList.contains('opacity-0')) {
+                imgTopdown.classList.remove('opacity-0');
+                imgTopdown.classList.add('opacity-100');
+                imgRealistic.classList.add('opacity-0');
+                imgRealistic.classList.remove('opacity-100');
+            } else {
+                imgTopdown.classList.add('opacity-0');
+                imgTopdown.classList.remove('opacity-100');
+            }
+        });
+
+        realisticBtn.addEventListener('click', () => {
+            if (imgRealistic.classList.contains('opacity-0')) {
+                imgRealistic.classList.remove('opacity-0');
+                imgRealistic.classList.add('opacity-100');
+                imgTopdown.classList.add('opacity-0');
+                imgTopdown.classList.remove('opacity-100');
+            } else {
+                imgRealistic.classList.add('opacity-0');
+                imgRealistic.classList.remove('opacity-100');
+            }
+        });
+
+        // Plant Data Dictionary mapped with double quotes to prevent syntax breaking
         const plantData = {
-            'vi': { name: 'Marsh Blue Violet', sci: 'Viola cucullata', type: 'Host Plant', dims: 'H: 6-12" | W: 8-12"', target: 'Silver-Bordered Fritillary', desc: 'We are planting these exactly level with the dirt. If we bury the base, they will rot. We\'ll let them spread out to form a living mulch layer.', textClass: 'text-white' },
-            'th': { name: 'White Turtlehead', sci: 'Chelone glabra', type: 'Host Plant', dims: 'H: 2-4\' | W: 1.5-2\'', target: 'Baltimore Checkerspot', desc: 'These grow into thick clumps. It might look bare the first year, but they grow fast. This is the main target for butterfly eggs.', textClass: 'text-slate-900' },
-            'as': { name: 'Flat-Topped Aster', sci: 'Doellingeria umbellata', type: 'Host Plant', dims: 'H: 3-5\' | W: 2-3\'', target: 'Harris\' Checkerspot', desc: 'These spread naturally underground. We\'ll let them slowly crawl out and fill in the spaces behind our turtleheads.', textClass: 'text-white' },
-            'mw': { name: 'Swamp Milkweed', sci: 'Asclepias incarnata', type: 'Nectar Anchor', dims: 'H: 3-5\' | W: 2-3\'', target: 'Checkerspots & Monarchs', desc: 'These have a deep root. We have to dig deep holes and point the root straight down. Bending it ruins the plant.', textClass: 'text-white' },
-            'jp': { name: 'Joe-Pye Weed', sci: 'Eutrochium maculatum', type: 'Nectar Anchor', dims: 'H: 4-6\'+ | W: 3-4\'', target: 'Massive Pollinator Magnet', desc: 'These turn into giant monsters. We are keeping them shoved to the back row so they don\'t block the sun from our smaller plants.', textClass: 'text-white' },
-            'bv': { name: 'Blue Vervain', sci: 'Verbena hastata', type: 'Nectar Anchor', dims: 'H: 3-5\' | W: 1-2\'', target: 'General Adult Fuel', desc: 'These drop a ton of seeds. We\'re just going to let them drop their seeds in the fall so they can naturally replace themselves.', textClass: 'text-white' },
-            'cx': { name: 'Fox Sedge', sci: 'Carex vulpinoidea', type: 'Matrix Filler', dims: 'H: 1-2\' | W: 1-2\'', target: 'Ground Cover & Shelter', desc: 'This grass acts like green spackle. It fills the gaps, holds the soil together, and stops invasive weeds from moving in.', textClass: 'text-slate-900' },
-            'ts': { name: 'Tussock Sedge', sci: 'Carex stricta', type: 'Matrix Filler', dims: 'H: 2-3\' | W: 2-3\'', target: 'Caterpillar Shelter', desc: 'This grass builds elevated mounds. The caterpillars will actually use these thick clumps to hide from wasps and birds.', textClass: 'text-slate-900' },
-            'jr': { name: 'Soft Rush', sci: 'Juncus effusus', type: 'Matrix Filler', dims: 'H: 3-4\' | W: 1-2\'', target: 'Structural Shelter', desc: 'Produces tall, dark green tubular stems. Fills in the back rows to give the bugs a place to hide out of the wind.', textClass: 'text-slate-900' }
+            'vi': { name: "Marsh Blue Violet", sci: "Viola cucullata", type: "Host Plant", dims: "H: 6-12\" | W: 8-12\"", target: "Silver-Bordered Fritillary", desc: "We are planting these exactly level with the dirt. If we bury the base, they will rot. We'll let them spread out to form a living mulch layer.", textClass: "text-white" },
+            'th': { name: "White Turtlehead", sci: "Chelone glabra", type: "Host Plant", dims: "H: 2-4' | W: 1.5-2'", target: "Baltimore Checkerspot", desc: "These grow into thick clumps. It might look bare the first year, but they grow fast. This is the main target for butterfly eggs.", textClass: "text-slate-900" },
+            'as': { name: "Flat-Topped Aster", sci: "Doellingeria umbellata", type: "Host Plant", dims: "H: 3-5' | W: 2-3'", target: "Harris' Checkerspot", desc: "These spread naturally underground. We'll let them slowly crawl out and fill in the spaces behind our turtleheads.", textClass: "text-white" },
+            'mw': { name: "Swamp Milkweed", sci: "Asclepias incarnata", type: "Nectar Anchor", dims: "H: 3-5' | W: 2-3'", target: "Checkerspots & Monarchs", desc: "These have a deep root. We have to dig deep holes and point the root straight down. Bending it ruins the plant.", textClass: "text-white" },
+            'jp': { name: "Joe-Pye Weed", sci: "Eutrochium maculatum", type: "Nectar Anchor", dims: "H: 4-6'+ | W: 3-4'", target: "Massive Pollinator Magnet", desc: "These turn into giant monsters. We are keeping them shoved to the back row so they don't block the sun from our smaller plants.", textClass: "text-white" },
+            'bv': { name: "Blue Vervain", sci: "Verbena hastata", type: "Nectar Anchor", dims: "H: 3-5' | W: 1-2'", target: "General Adult Fuel", desc: "These don't live forever, but they drop a ton of seeds. We're just going to let them drop their seeds in the fall so they can naturally replace themselves.", textClass: "text-white" },
+            'cx': { name: "Fox Sedge", sci: "Carex vulpinoidea", type: "Matrix Filler", dims: "H: 1-2' | W: 1-2'", target: "Ground Cover & Shelter", desc: "This grass acts like green spackle. It fills the gaps, holds the soil together, and stops invasive weeds from moving in.", textClass: "text-slate-900" },
+            'ts': { name: "Tussock Sedge", sci: "Carex stricta", type: "Matrix Filler", dims: "H: 2-3' | W: 2-3'", target: "Caterpillar Shelter", desc: "This grass builds elevated mounds. The caterpillars will actually use these thick clumps to hide from wasps and birds.", textClass: "text-slate-900" },
+            'jr': { name: "Soft Rush", sci: "Juncus effusus", type: "Matrix Filler", dims: "H: 3-4' | W: 1-2'", target: "Structural Shelter", desc: "Produces tall, dark green tubular stems. Fills in the back rows to give the bugs a place to hide out of the wind.", textClass: "text-slate-900" }
         };
 
         const layout = [
@@ -246,7 +298,6 @@
         const modal = document.getElementById('plant-modal');
         const modalContent = document.getElementById('modal-content');
 
-        // Modal Elements
         const mTitle = document.getElementById('modal-title');
         const mSciName = document.getElementById('modal-sci-name');
         const mType = document.getElementById('modal-type');
@@ -266,7 +317,6 @@
                     node.className = `w-[95%] h-[95%] rounded-full bg-plant-${cell} flex items-center justify-center text-[0.6rem] font-bold shadow-[0_4px_10px_rgba(0,0,0,0.3)] cursor-pointer hover:scale-110 transition-transform duration-200`;
                     node.textContent = cell.toUpperCase();
                     
-                    // Specific plant styling
                     if(cell === 'th') {
                         node.classList.add('shadow-[inset_0_-4px_6px_rgba(0,0,0,0.15)]', 'text-slate-900');
                     } else if (cell === 'cx' || cell === 'ts' || cell === 'jr') {
@@ -275,7 +325,6 @@
                         node.classList.add('shadow-[inset_0_-4px_6px_rgba(0,0,0,0.3)]', 'text-white');
                     }
 
-                    // Click event to open modal
                     node.addEventListener('click', () => openModal(cell));
                     div.appendChild(node);
                 }
@@ -294,13 +343,10 @@
             mDesc.textContent = data.desc;
             mIcon.textContent = cell.toUpperCase();
 
-            // Clear previous color classes
             mHeaderBg.className = `h-20 w-full bg-plant-${cell} opacity-20`;
             mIcon.className = `w-16 h-16 rounded-full border-4 border-slate-800 flex items-center justify-center font-bold text-lg shadow-lg absolute -top-12 bg-plant-${cell} ${data.textClass}`;
 
-            // Show modal
             modal.classList.remove('hidden');
-            // Small delay for transition to work
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 modalContent.classList.remove('scale-95');
@@ -315,17 +361,15 @@
             
             setTimeout(() => {
                 modal.classList.add('hidden');
-            }, 300); // Wait for transition
+            }, 300);
         }
 
-        // Close on outside click
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 closeModal();
             }
         });
         
-        // Close on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
                 closeModal();
